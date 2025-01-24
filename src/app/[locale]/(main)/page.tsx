@@ -8,7 +8,7 @@ export default async function LocalePage({
 }: {
   params: { locale: string };
 }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   // Supported locales
   const supportedLocales = ["en", "fr"];
@@ -22,9 +22,9 @@ export default async function LocalePage({
   const messages = await getMessages(locale);
 
   return (
-    <main>
+    <main className=" w-full bg-dark-300 flex flex-col items-center">
       <AboutMe />
-      <h1>{messages.welcome}</h1>
+      <h1 className=" text-white">{messages.welcome}</h1>
       <LanguageSwitcher />
     </main>
   );
