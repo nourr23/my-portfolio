@@ -41,7 +41,7 @@ export const Header = ({ messages, locale }: HeaderProps) => {
     );
   };
   return (
-    <div className=" z-10 fixed h-20 mx-auto justify-between bg-dark-300 self-center top-8 border-white border rounded-2xl w-[calc(100%-16px)] md:w-full max-w-[1080px] flex items-center px-5">
+    <div className=" z-10 absolute h-20 mx-auto justify-between bg-dark-300 self-center top-8 border-white border rounded-2xl w-[calc(100%-16px)] md:w-full max-w-[1080px] flex items-center px-5">
       <div className=" md:hidden flex ">
         <button onClick={() => setOpen(true)}>
           <GiHamburgerMenu size={24} color="white" />
