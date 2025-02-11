@@ -8,14 +8,16 @@ export default async function PageLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const locale = await params.locale;
+  const { locale } = await params;
   // Fetch translations for the current locale
   const messages = await getMessages(locale);
   return (
     <html lang={locale}>
-      <body className=" flex flex-col w-full items-center">
-        <Header messages={messages} locale={locale} />
-        {children}
+      <body>
+        <div className=" flex flex-col w-full items-center">
+          <Header messages={messages} locale={locale} />
+          {children}
+        </div>
       </body>
     </html>
   );

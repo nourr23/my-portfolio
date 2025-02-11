@@ -22,10 +22,8 @@ export default async function LocalePage({
   const messages = await getMessages(locale);
 
   return (
-    <main className=" w-full bg-dark-300 flex flex-col items-center">
+    <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
       <AboutMe />
-      <h1 className=" text-white">{messages.welcome}</h1>
-      <LanguageSwitcher />
     </main>
   );
 }
