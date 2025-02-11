@@ -2,5 +2,8 @@
   "welcome": "Bienvenue sur mon portfolio",
   "about": "À propos de moi",
   "projects": "Projets",
-  "contact": "Contact"
+  "contact": "Contact",
+  "services": "Services",
+  "portfolio": "Portfolio",
+  "technologies": "Technologies"
 }
