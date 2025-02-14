@@ -2,6 +2,7 @@ import { getMessages } from "@/lib/getMessages";
 import { notFound } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AboutMe } from "@/components/sections/about-me";
+import { Skills } from "@/components/sections/skills";
 
 export default async function LocalePage({
   params,
@@ -24,6 +25,7 @@ export default async function LocalePage({
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
       <AboutMe />
+      <Skills />
     </main>
   );
 }
