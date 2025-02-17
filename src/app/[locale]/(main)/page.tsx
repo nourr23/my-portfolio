@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AboutMe } from "@/components/sections/about-me";
 import { Skills } from "@/components/sections/skills";
+import { supabase } from "@/lib/supabase";
 
 export default async function LocalePage({
   params,
@@ -21,7 +22,8 @@ export default async function LocalePage({
 
   // Fetch messages for the locale
   const messages = await getMessages(locale);
-
+  const projects = await getProjects();
+  console.log("projects", projects);
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
       <AboutMe />
@@ -29,3 +31,13 @@ export default async function LocalePage({
     </main>
   );
 }
+
+const getProjects = async () => {
+  let { data: projects, error } = await supabase.from("projects").select("*");
+  if (error) {
+    console.error("Error fetching projects", error);
+    return;
+  }
+  console.log("projects", projects);
+  return projects;
+};
