@@ -13,15 +13,14 @@ export const Projects = ({ projects }: { projects: ProjectsProps[] }) => {
             .slice(0, 3)
             .sort((a, b) => a.order - b.order)
             .map((project) => {
-              return <ProjectCard project={project} />;
+              return <ProjectCard key={project.id} project={project} />;
             })}
-          {/* <div className=" hidden lg:flex items-center flex-wrap w-full justify-center gap-2 md:gap-10"> */}
           {projects
             .slice(3, 6)
             .sort((a, b) => a.order - b.order)
             .map((project) => {
               return (
-                <div className="hidden md:flex">
+                <div key={project.id} className="hidden md:flex">
                   <ProjectCard project={project} />
                 </div>
               );
