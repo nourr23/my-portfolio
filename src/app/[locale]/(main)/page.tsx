@@ -1,9 +1,9 @@
 import { getMessages } from "@/lib/getMessages";
 import { notFound } from "next/navigation";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AboutMe } from "@/components/sections/about-me";
 import { Skills } from "@/components/sections/skills";
 import { supabase } from "@/lib/supabase";
+import { Projects } from "@/components/sections/projects";
 
 export default async function LocalePage({
   params,
@@ -20,24 +20,27 @@ export default async function LocalePage({
     notFound(); // Automatically shows the Next.js 404 page
   }
 
-  // Fetch messages for the locale
-  const messages = await getMessages(locale);
   const projects = await getProjects();
   console.log("projects", projects);
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
       <AboutMe />
       <Skills />
+      {projects && <Projects projects={projects} />}
     </main>
   );
 }
 
 const getProjects = async () => {
-  let { data: projects, error } = await supabase.from("projects").select("*");
+  let { data: projects, error } = await supabase
+    .from("projects")
+    .select(
+      "id,name,year,description,order,description,important,mobile,logo,back_end,front_end"
+    )
+    .eq("important", true);
   if (error) {
     console.error("Error fetching projects", error);
     return;
   }
-  console.log("projects", projects);
   return projects;
 };
