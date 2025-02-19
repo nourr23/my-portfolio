@@ -2,6 +2,7 @@ import { getMessages } from "@/lib/getMessages";
 import { notFound } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { AboutMe, Skills, Projects, Services } from "@/components/sections";
+import { ContactMe } from "@/components/sections/contact-me";
 
 export default async function LocalePage({
   params,
@@ -26,6 +27,7 @@ export default async function LocalePage({
       <Skills />
       {projects && <Projects projects={projects} />}
       <Services />
+      <ContactMe />
     </main>
   );
 }
