@@ -13,7 +13,7 @@ export default {
       screens: {
         "2xsmall": "320px",
         xsmall: "512px",
-        small: "1024px",
+        small: "1080px",
         medium: "1280px",
         large: "1440px",
         xlarge: "1680px",

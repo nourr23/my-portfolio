@@ -4,7 +4,7 @@ import { FiExternalLink } from "react-icons/fi"; // Install with 'npm install re
 
 const ProjectCard = ({ project }: { project: ProjectsProps }) => {
   return (
-    <div className=" lg:max-w-[350px] max-w-[300px] bg-white rounded-2xl shadow-lg border border-gray-800">
+    <div className=" lg:max-w-[320px] max-w-[300px] bg-white rounded-2xl shadow-lg border border-gray-800">
       {/* Top Section: Image & Content */}
       <div className="px-3 py-8 gap-x-1 border-b border-gray-200 flex justify-between">
         <div>

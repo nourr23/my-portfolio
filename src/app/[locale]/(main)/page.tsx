@@ -2,6 +2,7 @@ import { getMessages } from "@/lib/getMessages";
 import { notFound } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { AboutMe, Skills, Projects, Services } from "@/components/sections";
+import { ContactMe } from "@/components/sections/contact-me";
 
 export default async function LocalePage({
   params,
@@ -19,13 +20,13 @@ export default async function LocalePage({
   }
 
   const projects = await getProjects();
-  console.log("projects", projects);
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
       <AboutMe />
       <Skills />
       {projects && <Projects projects={projects} />}
       <Services />
+      <ContactMe />
     </main>
   );
 }

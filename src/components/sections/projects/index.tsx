@@ -3,8 +3,8 @@ import { ProjectsProps } from "@/types/projets";
 
 export const Projects = ({ projects }: { projects: ProjectsProps[] }) => {
   return (
-    <div className="border-b border-gray-800 w-full">
-      <div className=" md:py-20 py-4 w-full md:px-11 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-primary-500/20 via-dark-300  to-dark-300">
+    <div className="border-b border-gray-800 w-full flex justify-center">
+      <div className=" max-w-[1080px] small:px-0 md:py-20 py-4 w-full md:px-4 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-primary-500/20 via-dark-300  to-dark-300">
         <div className="bg-gradient-to-r from-25% from-primary-500 via-secondary-500 to-secondary-500 inline-block text-transparent bg-clip-text text-2xl md:text-5xl uppercase">
           Projects
         </div>
@@ -28,7 +28,10 @@ export const Projects = ({ projects }: { projects: ProjectsProps[] }) => {
           {/* </div> */}
         </div>
         <div className="flex justify-center mt-10">
-          <a href="/projects" className="text-primary-500 text-2xl hover:underline">
+          <a
+            href="/projects"
+            className="text-primary-500 text-2xl hover:underline"
+          >
             See All Projects
           </a>
         </div>
