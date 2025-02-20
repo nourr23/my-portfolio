@@ -13,7 +13,7 @@ const sendMessageSchema = yup.object().shape({
   mail: yup.string().email("Please enter a valid email").required("Required"),
   message: yup.string().required("Required"),
 });
-export const SendMessageForm = () => {
+export const SendMessageForm = ({ messages }: any) => {
   const [isPending, setIsPending] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const {
@@ -66,7 +66,9 @@ export const SendMessageForm = () => {
         onSubmit={handleSubmit}
       >
         <div className=" w-full">
-          <div className="text-white text-sm md:text-base">Name</div>
+          <div className="text-white text-sm md:text-base capitalize">
+            {messages.full_name}
+          </div>
           <FormInput
             name="name"
             id="name"
@@ -111,15 +113,15 @@ export const SendMessageForm = () => {
               type="submit"
               className="text-white uppercase text-base  justify-between gap-x-2"
             >
-              {isPending ? <Spinner /> : <div>SEND</div>}
+              {isPending ? <Spinner /> : <div>{messages.send}</div>}
             </button>
           </div>
         </div>
       </form>
       {showToast && (
         <Toast
-          title={"message sent"}
-          message={"Your message has been sent successfully"}
+          title={messages.message_sent}
+          message={messages.message_sent_description}
         />
       )}
     </>

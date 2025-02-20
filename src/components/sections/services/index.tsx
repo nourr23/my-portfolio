@@ -3,25 +3,22 @@ import { CgWebsite } from "react-icons/cg";
 import { IoCodeSlashSharp } from "react-icons/io5";
 import { FiSmartphone } from "react-icons/fi";
 
-export const Services = () => {
+export const Services = ({ messages }: any) => {
   const servecies = [
     {
       id: 1,
-      title: "Web Development",
-      description:
-        "I create websites based on your ready-made design. Whether it's a landing page or a business card website, I will make it look great and work smoothly on any device.",
+      title: `${messages.services_1_title}`,
+      description: `${messages.services_1_description}`,
     },
     {
       id: 2,
-      title: "Mobile Development",
-      description:
-        "I develop mobile applications based on your ready-made design. Whether it’s a business app or a personal project, I ensure a sleek and responsive user experience.",
+      title: `${messages.services_2_title}`,
+      description: `${messages.services_2_description}`,
     },
     {
       id: 3,
-      title: "backend Development",
-      description:
-        "I develop robust and scalable APIs tailored to your needs. Whether it's for a web or mobile application, I ensure secure, high-performance, and well-documented endpoints.",
+      title: `${messages.services_3_title}`,
+      description: `${messages.services_3_description}`,
     },
   ];
   return (

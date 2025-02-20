@@ -8,7 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { SendMessageForm } from "@/components/send-message-form";
 
-export const ContactMe = () => {
+export const ContactMe = ({ messages }: { messages: any }) => {
   const [copied, setCopied] = useState(false);
   const textToCopy = "+21694077836"; // The text you want to copy
 
@@ -27,10 +27,10 @@ export const ContactMe = () => {
       <div className="max-w-[1080px] flex-wrap small:px-2 md:py-20 py-4 flex justify-between w-full md:px-11 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-primary-500/10 via-dark-300  to-dark-300">
         <div className=" w-full md:w-[50%]">
           <div className="bg-gradient-to-r from-25% max-w-[390px] md:pr-1 from-primary-500 via-secondary-500 to-secondary-500 inline-block text-transparent bg-clip-text text-xl md:text-3xl uppercase">
-            do you have a project in mind?
+            {messages.project_in_mind}
           </div>
           <div className="mt-6 items-center text-white text-base md:text-lg uppercase flex gap-x-4">
-            <div>Get in touch</div>
+            <div>{messages.get_in_touch}</div>
             <TbMessageDots size={22} color="white" />
           </div>
           <div className="mt-8 flex w-full items-center">
@@ -41,7 +41,7 @@ export const ContactMe = () => {
             </div>
             <div className=" w-[50%]">
               <div className="text-white uppercase text-xs md:text-sm">
-                My Online Presence
+                {messages.my_online_presence}
               </div>
             </div>
           </div>
@@ -86,8 +86,10 @@ export const ContactMe = () => {
           </div>
         </div>
         <div className=" w-full md:w-[50%]">
-          <div className="text-white text-lg md:text-xl">Message me</div>
-          <SendMessageForm />
+          <div className="text-white text-lg md:text-xl">
+            {messages.message_me}
+          </div>
+          <SendMessageForm messages={messages} />
         </div>
       </div>
     </div>

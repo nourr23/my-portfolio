@@ -19,14 +19,16 @@ export default async function LocalePage({
     notFound(); // Automatically shows the Next.js 404 page
   }
 
+  // Fetch messages for the locale
+  const messages = await getMessages(locale);
   const projects = await getProjects();
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">
-      <AboutMe />
-      <Skills />
-      {projects && <Projects projects={projects} />}
-      <Services />
-      <ContactMe />
+      <AboutMe messages={messages} />
+      <Skills messages={messages} />
+      {projects && <Projects projects={projects} messages={messages} />}
+      <Services messages={messages} />
+      <ContactMe messages={messages} />
     </main>
   );
 }

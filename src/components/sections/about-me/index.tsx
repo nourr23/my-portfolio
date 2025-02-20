@@ -1,6 +1,6 @@
 import Image from "next/image";
 import my_photo from "../../../../public/myPhoto5.png";
-export const AboutMe = () => {
+export const AboutMe = ({ messages }: any) => {
   return (
     <div className="w-full border-b border-[#3e4653] flex justify-center ">
       <div className="h-svh w-full md:justify-center justify-between gap-y-3 md:flex-row flex-col flex items-center max-w-[1080px]">
@@ -12,13 +12,12 @@ export const AboutMe = () => {
             DEVELOPER
           </div>
           <div className="md:mt-8 text-white text-sm md:text-lg md:w-[420px] mx-auto">
-            I am a fullstack developer with a passion for creating modern and
-            responsive web and mobile applications.
+            {messages.description}
           </div>
           <div className=" p-[2px] mt-4 mx-auto rounded-lg bg-gradient-to-r from-secondary-500 via-secondary-500 to-primary-500 ">
             <div className=" h-full w-full rounded-lg bg-dark-300 px-3 py-1">
               <button className="text-white uppercase text-base w-full flex items-center justify-between gap-x-2">
-                <div>View my work</div>
+                <div>{messages.view_my_work}</div>
               </button>
             </div>
           </div>
