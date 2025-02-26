@@ -13,14 +13,12 @@ export default async function PageLayout({
   // Fetch translations for the current locale
   const messages = await getMessages(locale);
   return (
-    <html lang={locale}>
-      <body>
+    <>
         <div className=" flex flex-col w-full items-center">
           <Header messages={messages} locale={locale} />
           {children}
           <Footer />
         </div>
-      </body>
-    </html>
+      </>
   );
 }

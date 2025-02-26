@@ -21,6 +21,9 @@ export default async function LocalePage({
 
   // Fetch messages for the locale
   const messages = await getMessages(locale);
+
+  console.log(messages);
+
   const projects = await getProjects();
   return (
     <main className=" w-full bg-dark-300 px-2 md:px-0 flex flex-col items-center">

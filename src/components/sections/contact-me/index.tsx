@@ -85,7 +85,7 @@ export const ContactMe = ({ messages }: { messages: any }) => {
             </div>
           </div>
         </div>
-        <div className=" w-full md:w-[50%]">
+        <div className=" w-full md:w-[50%] md:mt-0 mt-4">
           <div className="text-white text-lg md:text-xl">
             {messages.message_me}
           </div>

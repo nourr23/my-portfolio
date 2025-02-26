@@ -62,7 +62,7 @@ export const SendMessageForm = ({ messages }: any) => {
   return (
     <>
       <form
-        className="mt-6 flex flex-col gap-3 px-2 items-start"
+        className="md:mt-6 mt-2 flex flex-col gap-3 px-2 items-start"
         onSubmit={handleSubmit}
       >
         <div className=" w-full">
