@@ -1,6 +1,7 @@
 import { ProjectsProps } from "@/types/projets";
 import React from "react";
 import { FiExternalLink } from "react-icons/fi"; // Install with 'npm install react-icons'
+import Image from "next/image";
 
 const ProjectCard = ({ project }: { project: ProjectsProps }) => {
   return (
@@ -18,11 +19,16 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
         </div>
 
         <div className="relative flex-1 flex justify-end items-center">
-          <img
-            className=" w-32 h-auto max-w-none object-cover rounded-md"
-            src={project.logo} // Replace with actual image
-            alt="Miss Symetria"
-          />
+          {project.logo && (
+            <Image
+              className=" w-32 h-auto max-w-none object-cover rounded-md"
+              src={project.logo} // Replace with actual image
+              alt="Miss Symetria"
+              width={128} // Adjust width as needed
+              height={128} // Adjust height as needed
+              loading="lazy"
+            />
+          )}
         </div>
       </div>
 

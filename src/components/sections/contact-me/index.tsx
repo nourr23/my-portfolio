@@ -8,7 +8,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { SendMessageForm } from "@/components/send-message-form";
 
-export const ContactMe = ({ messages }: { messages: any }) => {
+export const ContactMe = ({
+  messages,
+}: {
+  messages: Record<string, string>;
+}) => {
   const [copied, setCopied] = useState(false);
   const textToCopy = "+21694077836"; // The text you want to copy
 

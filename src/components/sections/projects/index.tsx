@@ -1,12 +1,13 @@
 import ProjectCard from "@/components/project-card";
 import { ProjectsProps } from "@/types/projets";
+import Link from "next/link";
 
 export const Projects = ({
   projects,
   messages,
 }: {
   projects: ProjectsProps[];
-  messages: any;
+  messages: Record<string, string>;
 }) => {
   return (
     <div className="border-b border-gray-800 w-full flex justify-center">
@@ -34,12 +35,12 @@ export const Projects = ({
           {/* </div> */}
         </div>
         <div className="flex justify-center mt-10">
-          <a
+          <Link
             href="/projects"
             className="text-primary-500 text-2xl hover:underline"
           >
             {messages.see_all_projects}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,16 +1,37 @@
+// import { FormikErrors, FormikTouched } from "formik";
+
+import { ChangeEvent } from "react";
+
+interface FormValues {
+  name: string;
+  mail: string;
+  message: string;
+}
+
+interface InputFieldProps {
+  id: string;
+  name: keyof FormValues;
+  type: string;
+  value: string;
+  placeholder?: string;
+  onChange: (e: ChangeEvent) => void;
+  handleBlur: (e: React.FocusEvent) => void;
+  errors: string | undefined;
+  touched: boolean | undefined;
+}
 export const FormInput = ({
-  handleChange,
+  onChange,
   errors,
   touched,
   handleBlur,
   type,
   ...otherProps
-}: any) => {
+}: InputFieldProps) => {
   return (
     <div className="">
       {type === "textarea" ? (
         <textarea
-          onChange={handleChange}
+          onChange={onChange}
           onBlur={handleBlur}
           {...otherProps}
           className={`w-full bg-transparent text-white border border-gray-600 rounded-md p-2  ${
@@ -19,7 +40,7 @@ export const FormInput = ({
         />
       ) : (
         <input
-          onChange={handleChange}
+          onChange={onChange}
           onBlur={handleBlur}
           {...otherProps}
           className={`w-full !bg-transparent text-white border border-gray-600 rounded-md p-2  ${

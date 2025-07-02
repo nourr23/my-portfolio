@@ -1,6 +1,6 @@
-import Image from "next/image";
-import my_photo from "../../../../public/myPhoto5.png";
-export const AboutMe = ({ messages }: any) => {
+// import Image from "next/image";
+// import my_photo from "../../../../public/myPhoto5.png";
+export const AboutMe = ({ messages }: { messages: Record<string, string> }) => {
   return (
     <div className="w-full border-b border-[#3e4653] flex justify-center ">
       <div className="h-svh w-full md:justify-center justify-between gap-y-3 md:flex-row flex-col flex items-center max-w-[1080px]">
@@ -39,13 +39,13 @@ export const AboutMe = ({ messages }: any) => {
             </div>
           </div>
 
-          <Image
+          {/* <Image
             alt="my photo"
             className="md:absolute relative  bottom-[-20px] md:w-[400px] large:w-[460px]  w-[230px]  "
             src={my_photo}
             width={400}
             height={276}
-          />
+          /> */}
         </div>
       </div>
     </div>

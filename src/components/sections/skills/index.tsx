@@ -11,7 +11,7 @@ import { FaReact } from "react-icons/fa";
 import { DiNodejs } from "react-icons/di";
 import { TbBrandReactNative } from "react-icons/tb";
 
-export const Skills = ({ messages }: any) => {
+export const Skills = ({ messages }: { messages: Record<string, string> }) => {
   return (
     <div className="border-b border-gray-800 w-full flex justify-center">
       <div className=" md:py-20 py-4 w-full md:px-11 small:px-0 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-secondary-500/15 via-dark-300  to-dark-300 max-w-[1080px]">

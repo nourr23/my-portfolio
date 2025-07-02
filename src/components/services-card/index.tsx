@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { CgWebsite } from "react-icons/cg";
 
 export const ServicesCard = ({
   object,

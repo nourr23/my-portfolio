@@ -2,8 +2,8 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { FormInput } from "../ui/input-form";
-import { supabase } from "@/lib/supabase";
-import { MessageType } from "@/types/message";
+// import { supabase } from "@/lib/supabase";
+// import { MessageType } from "@/types/message";
 import { useState } from "react";
 import { Spinner } from "../ui/spinner";
 import { Toast } from "../ui/toast";
@@ -13,51 +13,48 @@ const sendMessageSchema = yup.object().shape({
   mail: yup.string().email("Please enter a valid email").required("Required"),
   message: yup.string().required("Required"),
 });
-export const SendMessageForm = ({ messages }: any) => {
-  const [isPending, setIsPending] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const {
-    values,
-    touched,
-    errors,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-    setValues,
-    setTouched,
-  } = useFormik({
-    initialValues: {
-      name: "",
-      mail: "",
-      message: "",
-    },
-    validationSchema: sendMessageSchema,
-    onSubmit: (values) => {
-      addMessage(values);
-    },
-  });
+export const SendMessageForm = ({
+  messages,
+}: {
+  messages: Record<string, string>;
+}) => {
+  const [isPending] = useState(false);
+  const [showToast] = useState(false);
+  const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        name: "",
+        mail: "",
+        message: "",
+      },
+      validationSchema: sendMessageSchema,
+      onSubmit: (values) => {
+        // addMessage(values);
+        console.log("Form submitted with values:", values);
+      },
+    });
 
-  const addMessage = async (data: MessageType) => {
-    const { name, message, mail } = data;
-    try {
-      setIsPending(true);
-      const { data, error } = await supabase
-        .from("messages")
-        .insert([{ name: name, message: message, mail: mail }])
-        .select();
-    } catch (error) {
-      console.log("error", error);
-      setIsPending(false);
-    } finally {
-      setValues({ name: "", mail: "", message: "" });
-      setTouched({ name: false, mail: false, message: false });
-      setIsPending(false);
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-    }
-  };
+  // const addMessage = async (data: MessageType) => {
+  //   const { name, message, mail } = data;
+  //   try {
+  //     setIsPending(true);
+  //     const { data, error } = await supabase
+  //       .from("messages")
+  //       .insert([{ name: name, message: message, mail: mail }])
+  //       .select();
+  //   } catch (error) {
+  //     console.log("error", error);
+  //     setIsPending(false);
+  //   } finally {
+  //     setValues({ name: "", mail: "", message: "" });
+  //     setTouched({ name: false, mail: false, message: false });
+  //     setIsPending(false);
+  //     setShowToast(true);
+  //     setTimeout(() => {
+  //       setShowToast(false);
+  //     }, 3000);
+  //   }
+  // };
 
   return (
     <>
@@ -77,6 +74,7 @@ export const SendMessageForm = ({ messages }: any) => {
             touched={touched.name}
             onChange={handleChange}
             handleBlur={handleBlur}
+            type="text"
           />
         </div>
         <div className=" w-full">

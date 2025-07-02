@@ -3,7 +3,11 @@ import { CgWebsite } from "react-icons/cg";
 import { IoCodeSlashSharp } from "react-icons/io5";
 import { FiSmartphone } from "react-icons/fi";
 
-export const Services = ({ messages }: any) => {
+export const Services = ({
+  messages,
+}: {
+  messages: Record<string, string>;
+}) => {
   const servecies = [
     {
       id: 1,
