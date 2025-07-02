@@ -36,7 +36,7 @@ export const Projects = ({
         </div>
         <div className="flex justify-center mt-10">
           <Link
-            href="/projects"
+            href="#"
             className="text-primary-500 text-2xl hover:underline"
           >
             {messages.see_all_projects}

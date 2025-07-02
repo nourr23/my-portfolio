@@ -2,6 +2,7 @@ import { ProjectsProps } from "@/types/projets";
 import React from "react";
 import { FiExternalLink } from "react-icons/fi"; // Install with 'npm install react-icons'
 import Image from "next/image";
+import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: ProjectsProps }) => {
   return (
@@ -10,7 +11,9 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
       <div className="px-3 py-8 gap-x-1 border-b border-gray-200 flex justify-between">
         <div>
           <div className="text-xl font-semibold text-gray-800">
-            <h3 className="text-blue-500 capitalize">{project.name}</h3>
+            <h3 className="text-blue-500 capitalize line-clamp-1 overflow-hidden text-ellipsis">
+              {project.name}
+            </h3>
             <div className=" text-xs">Created in {project.year}</div>
           </div>
           <p className="text-gray-600 text-xs mt-2 line-clamp-6 overflow-hidden text-ellipsis">
@@ -18,12 +21,12 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
           </p>
         </div>
 
-        <div className="relative flex-1 flex justify-end items-center">
+        <div className="relative flex-1 flex justify-end items-center max-h-[148px]">
           {project.logo && (
             <Image
               className=" w-32 h-auto max-w-none object-cover rounded-md"
               src={project.logo} // Replace with actual image
-              alt="Miss Symetria"
+              alt={project.name}
               width={128} // Adjust width as needed
               height={128} // Adjust height as needed
               loading="lazy"
@@ -38,9 +41,13 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
           {/* External Link Icon */}
           <div></div>
           <div className=" w-9 h-[2px] bg-gray-800 rounded-3xl"></div>
-          <a href="#" className="text-white text-2xl">
+          <Link
+            href={project.url ?? "#"}
+            target="_blank"
+            className="text-white text-2xl"
+          >
             <FiExternalLink />
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col items-center">
           <h4 className="text-lg font-semibold capitalize">

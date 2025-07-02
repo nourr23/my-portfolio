@@ -1,7 +1,7 @@
 export interface ProjectsProps {
   id: number;
   created_at?: string; // Assuming ISO string format for timestamps
-  name?: string;
+  name: string;
   year?: number;
   order: number;
   technologies?: string;
@@ -13,6 +13,6 @@ export interface ProjectsProps {
   mobile: boolean;
   description: string;
   image?: string[]; // Assuming it's an array of image URLs stored as text[]
-  url?: string;
+  url: string;
   logo?: string;
 }
