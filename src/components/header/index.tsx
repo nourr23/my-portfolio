@@ -1,40 +1,27 @@
 "use client";
-import Link from "next/link";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-type HeaderProps = {
-  messages?: Record<string, string>;
-  locale: string; // Adjust this based on your JSON structure
-};
-
-export const Header = ({ messages, locale }: HeaderProps) => {
+export const Header = () => {
   const [open, setOpen] = useState(false);
 
-  if (!messages) return null;
+  const t = useTranslations("home");
   const Links = () => {
     return (
       <>
         <Link className=" text-white uppercase text-sm" href={""}>
-          {messages.services}
+          {t("services")}
         </Link>
-        <Link
-          className=" text-white uppercase text-sm"
-          href={`${locale}/technologies`}
-        >
-          {messages.technologies}
+        <Link className=" text-white uppercase text-sm" href={`/technologies`}>
+          {t("technologies")}
         </Link>
-        <Link
-          className=" text-white uppercase text-sm"
-          href={`${locale}/projects`}
-        >
-          {messages.projects}
+        <Link className=" text-white uppercase text-sm" href={`/projects`}>
+          {t("projects")}
         </Link>
-        <Link
-          className=" text-white uppercase text-sm"
-          href={`${locale}/about`}
-        >
+        <Link className=" text-white uppercase text-sm" href={`/about`}>
           contact
         </Link>
       </>

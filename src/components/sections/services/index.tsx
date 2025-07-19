@@ -1,28 +1,27 @@
+"use client";
 import { ServicesCard } from "@/components/services-card";
 import { CgWebsite } from "react-icons/cg";
 import { IoCodeSlashSharp } from "react-icons/io5";
 import { FiSmartphone } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
-export const Services = ({
-  messages,
-}: {
-  messages: Record<string, string>;
-}) => {
+export const Services = () => {
+  const t = useTranslations("home");
   const servecies = [
     {
       id: 1,
-      title: `${messages.services_1_title}`,
-      description: `${messages.services_1_description}`,
+      title: `${t("services_1_title")}`,
+      description: `${t("services_1_description")}`,
     },
     {
       id: 2,
-      title: `${messages.services_2_title}`,
-      description: `${messages.services_2_description}`,
+      title: `${t("services_2_title")}`,
+      description: `${t("services_2_description")}`,
     },
     {
       id: 3,
-      title: `${messages.services_3_title}`,
-      description: `${messages.services_3_description}`,
+      title: `${t("services_3_title")}`,
+      description: `${t("services_3_description")}`,
     },
   ];
   return (

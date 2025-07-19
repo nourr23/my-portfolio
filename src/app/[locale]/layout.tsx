@@ -1,26 +1,33 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { getMessages } from "@/lib/getMessages";
-
-type Params = Promise<{ locale: string }>;
+import "./globals.css";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 export default async function PageLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Params;
+  params: Promise<{ locale: string }>;
 }) {
+  // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-  // Fetch translations for the current locale
-  const messages = await getMessages(locale);
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   return (
-    <>
-      <div className=" flex flex-col w-full items-center">
-        <Header messages={messages} locale={locale} />
-        {children}
-        <Footer />
-      </div>
-    </>
+    <html lang={locale}>
+      <body className={`antialiased`}>
+        <NextIntlClientProvider>
+          <div className=" flex flex-col w-full items-center">
+            <Header />
+             {children}
+           <Footer />
+          </div>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
