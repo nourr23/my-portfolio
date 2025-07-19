@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "./src/theme/colors";
 
 export default {
   content: [
@@ -8,9 +9,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors,
+      screens: {
+        "2xsmall": "320px",
+        xsmall: "512px",
+        small: "1080px",
+        medium: "1280px",
+        large: "1440px",
+        xlarge: "1680px",
+        "2xlarge": "1920px",
       },
     },
   },

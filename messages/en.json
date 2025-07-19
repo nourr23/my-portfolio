@@ -1,0 +1,30 @@
+{
+  "home": {
+    "welcome": "Welcome to my portfolio",
+    "about": "About Me",
+    "projects": "Projects",
+    "contact": "Contact",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "technologies": "Technologies",
+    "description": "I am a fullstack developer with a passion for creating modern and responsive web and mobile applications.",
+    "view_my_work": "View my work",
+    "skills": "Skills",
+    "skills_description": "I have experience with the following technologies:",
+    "see_all_projects": "See all projects",
+    "services_1_title": "Web Development",
+    "services_1_description": "I create websites based on your ready-made design. Whether it's a landing page or a business card website, I will make it look great and work smoothly on any device.",
+    "services_2_title": "Mobile Development",
+    "services_2_description": "I develop mobile applications for iOS and Android using React Native. I can create a mobile app from scratch or add new features to an existing one.",
+    "services_3_title": "API Development",
+    "services_3_description": "I create RESTful APIs using Node.js and Express. I can build a custom API for your web or mobile application or integrate with third-party APIs.",
+    "project_in_mind": "do you have a project in mind?",
+    "get_in_touch": "Get in touch",
+    "my_online_presence": "My online presence",
+    "message_me": "Message me",
+    "message_sent": "message sent",
+    "sent_successfully": "Message sent successfully",
+    "full_name": "Full Name",
+    "send": "Send"
+  }
+}
