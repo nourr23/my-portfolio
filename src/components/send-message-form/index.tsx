@@ -2,59 +2,65 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { FormInput } from "../ui/input-form";
-// import { supabase } from "@/lib/supabase";
-// import { MessageType } from "@/types/message";
+import { supabase } from "@/lib/supabase";
+import { MessageType } from "@/types/message";
 import { useState } from "react";
 import { Spinner } from "../ui/spinner";
 import { Toast } from "../ui/toast";
+import { useTranslations } from "next-intl";
 
 const sendMessageSchema = yup.object().shape({
   name: yup.string().required("Required"),
   mail: yup.string().email("Please enter a valid email").required("Required"),
   message: yup.string().required("Required"),
 });
-export const SendMessageForm = ({
-  messages,
-}: {
-  messages: Record<string, string>;
-}) => {
-  const [isPending] = useState(false);
-  const [showToast] = useState(false);
-  const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        name: "",
-        mail: "",
-        message: "",
-      },
-      validationSchema: sendMessageSchema,
-      onSubmit: (values) => {
-        // addMessage(values);
-        console.log("Form submitted with values:", values);
-      },
-    });
+export const SendMessageForm = () => {
+  const t = useTranslations("home");
+  const [isPending, setIsPending] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const {
+    values,
+    touched,
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setValues,
+    setTouched,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      mail: "",
+      message: "",
+    },
+    validationSchema: sendMessageSchema,
+    onSubmit: (values) => {
+      addMessage(values);
+      console.log("Form submitted with values:", values);
+    },
+  });
 
-  // const addMessage = async (data: MessageType) => {
-  //   const { name, message, mail } = data;
-  //   try {
-  //     setIsPending(true);
-  //     const { data, error } = await supabase
-  //       .from("messages")
-  //       .insert([{ name: name, message: message, mail: mail }])
-  //       .select();
-  //   } catch (error) {
-  //     console.log("error", error);
-  //     setIsPending(false);
-  //   } finally {
-  //     setValues({ name: "", mail: "", message: "" });
-  //     setTouched({ name: false, mail: false, message: false });
-  //     setIsPending(false);
-  //     setShowToast(true);
-  //     setTimeout(() => {
-  //       setShowToast(false);
-  //     }, 3000);
-  //   }
-  // };
+  const addMessage = async (data: MessageType) => {
+    const { name, message, mail } = data;
+    try {
+      setIsPending(true);
+      const {} = await supabase
+        .from("messages")
+        .insert([{ name: name, message: message, mail: mail }])
+        .select();
+    } catch (error) {
+      console.log("error", error);
+      setIsPending(false);
+    } finally {
+      setValues({ name: "", mail: "", message: "" });
+      setTouched({ name: false, mail: false, message: false });
+      setIsPending(false);
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    }
+  };
 
   return (
     <>
@@ -64,7 +70,7 @@ export const SendMessageForm = ({
       >
         <div className=" w-full">
           <div className="text-white text-sm md:text-base capitalize">
-            {messages.full_name}
+            {t("full_name")}
           </div>
           <FormInput
             name="name"
@@ -111,16 +117,13 @@ export const SendMessageForm = ({
               type="submit"
               className="text-white uppercase text-base  justify-between gap-x-2"
             >
-              {isPending ? <Spinner /> : <div>{messages.send}</div>}
+              {isPending ? <Spinner /> : <div>{t("send")}</div>}
             </button>
           </div>
         </div>
       </form>
       {showToast && (
-        <Toast
-          title={messages.message_sent}
-          message={messages.message_sent_description}
-        />
+        <Toast title={"Success"} message={"Message Sent Successfully"} />
       )}
     </>
   );
