@@ -8,7 +8,10 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
   return (
     <div className=" lg:max-w-[320px] max-w-[300px] bg-white rounded-2xl shadow-lg border border-gray-800">
       {/* Top Section: Image & Content */}
-      <div className="px-3 py-8 gap-x-1 border-b border-gray-200 flex justify-between">
+      <Link
+        href={`/projects/${project.id}`}
+        className="px-3 py-8 gap-x-1 border-b border-gray-200 flex justify-between"
+      >
         <div>
           <div className="text-xl font-semibold text-gray-800">
             <h3 className="text-blue-500 capitalize line-clamp-1 overflow-hidden text-ellipsis">
@@ -33,7 +36,7 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
             />
           )}
         </div>
-      </div>
+      </Link>
 
       {/* Bottom Section: Title & Technologies */}
       <div className="bg-gray-900 text-white rounded-b-xl p-5 items-center justify-between">
