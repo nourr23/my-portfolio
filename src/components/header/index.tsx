@@ -34,7 +34,9 @@ export const Header = () => {
           <GiHamburgerMenu size={24} color="white" />
         </button>
       </div>
-      <div className="  text-white text-sm md:text-xl">Jouini Mohamed Nour</div>
+      <Link href={"/"} className="  text-white text-sm md:text-xl">
+        Jouini Mohamed Nour
+      </Link>
       <div className="md:flex gap-x-4 hidden ">
         <Links />
       </div>
