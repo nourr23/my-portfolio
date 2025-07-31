@@ -12,16 +12,16 @@ export const Header = () => {
   const Links = () => {
     return (
       <>
-        <Link className=" text-white uppercase text-sm" href={""}>
+        <Link className=" text-white uppercase text-sm" href={"#services"}>
           {t("services")}
         </Link>
-        <Link className=" text-white uppercase text-sm" href={`/technologies`}>
+        <Link className=" text-white uppercase text-sm" href={`#skills`}>
           {t("technologies")}
         </Link>
         <Link className=" text-white uppercase text-sm" href={`/projects`}>
           {t("projects")}
         </Link>
-        <Link className=" text-white uppercase text-sm" href={`/about`}>
+        <Link className=" text-white uppercase text-sm" href={`#contact-me`}>
           contact
         </Link>
       </>

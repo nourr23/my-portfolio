@@ -25,7 +25,10 @@ export const ContactMe = () => {
   };
 
   return (
-    <div className="border-b border-gray-800 w-full flex justify-center">
+    <div
+      id="contact-me"
+      className="border-b border-gray-800 w-full flex justify-center"
+    >
       <div className="max-w-[1080px] flex-wrap small:px-2 md:py-20 py-4 flex justify-between w-full md:px-11 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-primary-500/10 via-dark-300  to-dark-300">
         <div className=" w-full md:w-[50%]">
           <div className="bg-gradient-to-r from-25% max-w-[390px] md:pr-1 from-primary-500 via-secondary-500 to-secondary-500 inline-block text-transparent bg-clip-text text-xl md:text-3xl uppercase">

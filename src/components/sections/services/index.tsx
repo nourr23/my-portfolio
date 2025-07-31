@@ -25,7 +25,10 @@ export const Services = () => {
     },
   ];
   return (
-    <div className="border-b border-gray-800 w-full flex justify-center">
+    <div
+      id="services"
+      className="border-b border-gray-800 w-full flex justify-center"
+    >
       <div className="max-w-[1080px] small:px-2 md:py-20 py-4 w-full md:px-6 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-secondary-500/20 via-dark-300  to-dark-300">
         <div className="bg-gradient-to-r from-25% from-primary-500 via-secondary-500 to-secondary-500 inline-block text-transparent bg-clip-text text-2xl md:text-5xl uppercase">
           Services
