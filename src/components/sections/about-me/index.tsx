@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 // import my_photo from "../../../../public/myPhoto5.png";
 export const AboutMe = () => {
@@ -20,9 +21,12 @@ export const AboutMe = () => {
           </div>
           <div className=" p-[2px] mt-4 mx-auto rounded-lg bg-gradient-to-r from-secondary-500 via-secondary-500 to-primary-500 ">
             <div className=" h-full w-full rounded-lg bg-dark-300 px-3 py-1">
-              <button className="text-white uppercase text-base w-full flex items-center justify-between gap-x-2">
+              <Link
+                href={"#projects"}
+                className="text-white uppercase text-base w-full flex items-center justify-between gap-x-2"
+              >
                 <div>{t("view_my_work")}</div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

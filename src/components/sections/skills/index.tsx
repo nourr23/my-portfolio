@@ -16,7 +16,7 @@ import { useTranslations } from "next-intl";
 export const Skills = () => {
   const t = useTranslations("home");
   return (
-    <div className="border-b border-gray-800 w-full flex justify-center">
+    <div id="skills" className="border-b border-gray-800 w-full flex justify-center">
       <div className=" md:py-20 py-4 w-full md:px-11 small:px-0 px-2 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]  from-secondary-500/15 via-dark-300  to-dark-300 max-w-[1080px]">
         <div className="bg-gradient-to-r from-25% from-primary-500 via-secondary-500 to-secondary-500 inline-block text-transparent bg-clip-text text-xl md:text-5xl uppercase">
           {t("skills")}
