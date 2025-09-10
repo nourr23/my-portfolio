@@ -14,8 +14,7 @@ const getProjects = async () => {
     .from("projects")
     .select(
       "id,name,year,description,order,description,important,mobile,logo,back_end,front_end, url"
-    )
-    .eq("important", true);
+    );
   if (error) {
     console.error("Error fetching projects", error);
     return;
