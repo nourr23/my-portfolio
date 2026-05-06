@@ -12,7 +12,12 @@ export interface ProjectsProps {
   important?: boolean;
   mobile: boolean;
   description: string;
-  image?: string[]; // Assuming it's an array of image URLs stored as text[]
+  imgs?: string[]; // Gallery image URLs (stored as text[] in Postgres)
   url: string;
+  playstore_url?: string | null;
+  appstore_url?: string | null;
+  // Backward-compatible aliases (if you used these column names in Supabase)
+  playstorelink?: string | null;
+  appstorelink?: string | null;
   logo?: string;
 }
