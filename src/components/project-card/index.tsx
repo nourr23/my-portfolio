@@ -1,10 +1,18 @@
 import { ProjectsProps } from "@/types/projets";
 import React from "react";
 import { FiExternalLink } from "react-icons/fi"; // Install with 'npm install react-icons'
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: ProjectsProps }) => {
+  const playStoreUrl =
+    (project.playstore_url ?? project.playstorelink ?? "").toString().trim() ||
+    null;
+  const appStoreUrl =
+    (project.appstore_url ?? project.appstorelink ?? "").toString().trim() ||
+    null;
+
   return (
     <div className=" lg:max-w-[320px] max-w-[300px] bg-white rounded-2xl shadow-lg border border-gray-800">
       {/* Top Section: Image & Content */}
@@ -44,13 +52,49 @@ const ProjectCard = ({ project }: { project: ProjectsProps }) => {
           {/* External Link Icon */}
           <div></div>
           <div className=" w-9 h-[2px] bg-gray-800 rounded-3xl"></div>
-          <Link
-            href={project.url ?? "#"}
-            target="_blank"
-            className="text-white text-2xl"
-          >
-            <FiExternalLink />
-          </Link>
+          {project.mobile ? (
+            <div className="flex items-center gap-3">
+              {playStoreUrl && (
+                <Link
+                  href={playStoreUrl}
+                  target="_blank"
+                  aria-label="Play Store"
+                  className="text-white text-2xl hover:text-green-400 transition"
+                >
+                  <FaGooglePlay />
+                </Link>
+              )}
+              {appStoreUrl && (
+                <Link
+                  href={appStoreUrl}
+                  target="_blank"
+                  aria-label="App Store"
+                  className="text-white text-2xl hover:text-gray-300 transition"
+                >
+                  <FaApple />
+                </Link>
+              )}
+              {!playStoreUrl && !appStoreUrl && (
+                <Link
+                  href={project.url ?? "#"}
+                  target="_blank"
+                  aria-label="See app"
+                  className="text-white text-2xl"
+                >
+                  <FiExternalLink />
+                </Link>
+              )}
+            </div>
+          ) : (
+            <Link
+              href={project.url ?? "#"}
+              target="_blank"
+              aria-label="Visit website"
+              className="text-white text-2xl"
+            >
+              <FiExternalLink />
+            </Link>
+          )}
         </div>
         <div className="flex flex-col items-center">
           <h4 className="text-lg font-semibold capitalize">
