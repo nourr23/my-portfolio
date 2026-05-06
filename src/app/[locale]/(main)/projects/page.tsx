@@ -13,9 +13,8 @@ const getProjects = async () => {
   const { data: projects, error } = await supabase
     .from("projects")
     .select(
-      "id,name,year,description,order,description,important,mobile,logo,back_end,front_end, url"
-    )
-    .eq("important", true);
+      "id,name,year,description,order,important,mobile,logo,back_end,front_end,url,playstore_url,appstore_url"
+    );
   if (error) {
     console.error("Error fetching projects", error);
     return;
